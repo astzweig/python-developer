@@ -11,3 +11,6 @@ class TestSoundex(unittest.TestCase):
 
     def test_zeroPadsSingleLetterWord(self):
         self.assertEqual('A000', soundex('A'))
+
+    def test_replacesConsonantsWithDigit(self):
+        self.assertEqual('A400', soundex('Al'))
