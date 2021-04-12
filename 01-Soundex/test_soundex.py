@@ -24,3 +24,5 @@ class TestSoundex(unittest.TestCase):
     def test_contractsConsonantsSeparatedByHorW(self):
         self.assertEqual('A400', soundex('Alhl'))
 
+    def test_removesVowels(self):
+        self.assertEqual('A000', soundex('Aaaa'))
