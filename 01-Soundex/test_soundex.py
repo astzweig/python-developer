@@ -14,3 +14,6 @@ class TestSoundex(unittest.TestCase):
 
     def test_replacesConsonantsWithDigit(self):
         self.assertEqual('A400', soundex('Al'))
+
+    def test_contractConsecutiveConsonants(self):
+        self.assertEqual('A400', soundex('All'))
