@@ -9,4 +9,5 @@ class TestSoundex(unittest.TestCase):
         self.assertEqual('A', first_letter(soundex('A')))
         self.assertEqual('B', first_letter(soundex('B')))
 
-
+    def test_zeroPadsSingleLetterWord(self):
+        self.assertEqual('A000', soundex('A'))
