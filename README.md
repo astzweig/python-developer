@@ -3,7 +3,7 @@ Python Developer is a python application that runs code in different
 learning modules that each contain specific lessons about Python.
 It is used in the Astzweig course Python in details.
 
-# Lectures
+## Lectures
 No lectures yet.
 
 ## License
