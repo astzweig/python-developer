@@ -8,7 +8,11 @@ def soundex(word: str) -> str:
     word = _remove_vowels(word)
     word = _add_or_replace_first_char(word, first_char)
     word = _zero_pad(word)
+    word = _cut_after_four_chars(word)
     return word
+
+def _cut_after_four_chars(word: str) -> str:
+    return word[0:4]
 
 def _add_or_replace_first_char(word: str, first_char: str) -> str:
     if _is_consonant(first_char):

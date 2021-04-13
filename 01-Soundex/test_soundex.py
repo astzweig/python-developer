@@ -38,3 +38,6 @@ class TestSoundex(unittest.TestCase):
 
     def test_doesNotReplaceConsonantWithDigitIfFirstLetter(self):
         self.assertEqual('L000', soundex('L'))
+
+    def test_alwaysRetunsCodeWithThreeDigits(self):
+        self.assertEqual('A261', soundex('Ashcraft'))
