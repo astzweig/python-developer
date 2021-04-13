@@ -31,3 +31,6 @@ class TestSoundex(unittest.TestCase):
         self.assertEqual('a000', soundex('a'))
         self.assertEqual('l000', soundex('l'))
         self.assertEqual('H000', soundex('H'))
+
+    def test_handelsUpperCaseLikeLowerCase(self):
+        self.assertEqual('a400', soundex('aLH'))

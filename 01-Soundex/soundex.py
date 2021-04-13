@@ -14,7 +14,9 @@ def _add_or_replace_first_char(word: str, first_char: str) -> str:
     return first_char + word
 
 def _remove_h_and_w(word: str) -> str:
-    return word.replace('h', '').replace('w', '')
+    for char in 'hHwW':
+        word = word.replace(char, '')
+    return word
 
 def _remove_vowels(word: str) -> str:
     remaining_chars = ['']
@@ -24,10 +26,12 @@ def _remove_vowels(word: str) -> str:
     return ''.join(remaining_chars)
 
 def _is_consonant(char: str) -> bool:
-    return not _is_vowel(char) and char not in 'hw'
+    is_no_vowel = not _is_vowel(char)
+    is_no_h_or_w = char.lower() not in 'hw'
+    return is_no_vowel and is_no_h_or_w
 
 def _is_vowel(char: str) -> bool:
-    return char in 'aeiouy'
+    return char.lower() in 'aeiouy'
 
 def _contract_consecutive_consonants(word: str) -> str:
     remaining_chars = ['']
@@ -39,7 +43,7 @@ def _contract_consecutive_consonants(word: str) -> str:
 
 def _replace_consonants_with_digit(word: str) -> str:
     soundex_mapping = str.maketrans('bfpvcgjkqsxzdtlmnr', '111122222222334556')
-    return word.translate(soundex_mapping)
+    return word.lower().translate(soundex_mapping)
 
 def _zero_pad(word: str) -> str:
     return word.ljust(4, '0')
