@@ -22,3 +22,11 @@ class TestLevenshteinDistance(unittest.TestCase):
 
     def test_distanceForAdditionalLetterIsOne(self):
         self.assertEqual(1, edit_distance('hallo', 'halloo'))
+
+    def test_argumentOrderDoesNotChangeTheDistance(self):
+        word_a = 'hallo'
+        word_b = 'halloo'
+        self.assertEqual(
+                edit_distance(word_a, word_b),
+                edit_distance(word_b, word_a)
+        )
