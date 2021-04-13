@@ -19,3 +19,6 @@ class TestLevenshteinDistance(unittest.TestCase):
     def test_distanceOfSameLengthWordsIsAmountOfDifferentChars(self):
         self.assertEqual(1, edit_distance('hallo', 'hOllo'))
         self.assertEqual(2, edit_distance('HAllo', 'hallo'))
+
+    def test_distanceForAdditionalLetterIsOne(self):
+        self.assertEqual(1, edit_distance('hallo', 'halloo'))
