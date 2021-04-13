@@ -1,8 +1,8 @@
 def soundex(word: str) -> str:
     first_char = word[0]
     word = _remove_h_and_w(word)
-    word = _contract_consecutive_consonants(word)
     word = _replace_consonants_with_digit(word)
+    word = _contract_consecutive_consonants(word)
     word = _remove_vowels(word)
     word = _add_or_replace_first_char(word, first_char)
     word = _zero_pad(word)

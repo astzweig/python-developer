@@ -17,6 +17,7 @@ class TestSoundex(unittest.TestCase):
 
     def test_contractConsecutiveConsonants(self):
         self.assertEqual('A400', soundex('All'))
+        self.assertEqual('A400', soundex('ALl'))
 
     def test_removesHandW(self):
         self.assertEqual('A000', soundex('Ahw'))
