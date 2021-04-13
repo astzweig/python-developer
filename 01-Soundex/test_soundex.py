@@ -26,3 +26,8 @@ class TestSoundex(unittest.TestCase):
 
     def test_removesVowels(self):
         self.assertEqual('A000', soundex('Aaaa'))
+
+    def test_retainsCaseOfFirstLetter(self):
+        self.assertEqual('a000', soundex('a'))
+        self.assertEqual('l000', soundex('l'))
+        self.assertEqual('H000', soundex('H'))
