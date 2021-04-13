@@ -41,3 +41,13 @@ class TestSoundex(unittest.TestCase):
 
     def test_alwaysRetunsCodeWithThreeDigits(self):
         self.assertEqual('A261', soundex('Ashcraft'))
+
+    def test_allFeatures(self):
+        self.assertEqual('T522', soundex('Tymczak'))
+        self.assertEqual('A261', soundex('Ashcraft'))
+        self.assertEqual('A261', soundex('Ashcroft'))
+        self.assertEqual('P236', soundex('Pfister'))
+        self.assertEqual('R150', soundex('Rubin'))
+        self.assertEqual('R163', soundex('Robert'))
+        self.assertEqual('R163', soundex('Rupert'))
+        self.assertEqual('H555', soundex('Honeyman'))
