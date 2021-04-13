@@ -1,3 +1,5 @@
+from typing import Callable
+
 def soundex(word: str) -> str:
     first_char = word[0]
     word = _remove_h_and_w(word)
@@ -19,11 +21,9 @@ def _remove_h_and_w(word: str) -> str:
     return word
 
 def _remove_vowels(word: str) -> str:
-    remaining_chars = ['']
-    for char in word:
-        if not _is_vowel(char):
-            remaining_chars.append(char)
-    return ''.join(remaining_chars)
+    def is_no_vowel(char, retained_chars):
+        return not _is_vowel(char)
+    return _filter_chars(word, is_no_vowel)
 
 def _is_consonant(char: str) -> bool:
     is_no_vowel = not _is_vowel(char)
@@ -34,12 +34,16 @@ def _is_vowel(char: str) -> bool:
     return char.lower() in 'aeiouy'
 
 def _contract_consecutive_consonants(word: str) -> str:
-    remaining_chars = ['']
+    def is_not_consecutive_char(char, retained_chars):
+        return char != retained_chars[-1]
+    return _filter_chars(word, is_not_consecutive_char)
+
+def _filter_chars(word: str, callback: Callable[[str, str], bool]) -> str:
+    retained_chars = ['']
     for char in word:
-        last_added_char = remaining_chars[-1]
-        if last_added_char != char:
-            remaining_chars.append(char)
-    return ''.join(remaining_chars)
+        if callback(char, retained_chars):
+            retained_chars.append(char)
+    return ''.join(retained_chars)
 
 def _replace_consonants_with_digit(word: str) -> str:
     soundex_mapping = str.maketrans('bfpvcgjkqsxzdtlmnr', '111122222222334556')
