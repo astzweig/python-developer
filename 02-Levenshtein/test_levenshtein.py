@@ -12,3 +12,6 @@ class TestLevenshteinDistance(unittest.TestCase):
     def test_distanceToEmptyWordIsWordLength(self):
         word = 'whatwg'
         self.assertEqual(len(word), edit_distance(word, ''))
+
+    def test_distanceOfDifferentCharsIsOne(self):
+        self.assertEqual(1, edit_distance('a', 'b'))
