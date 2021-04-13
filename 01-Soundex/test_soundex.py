@@ -34,3 +34,6 @@ class TestSoundex(unittest.TestCase):
 
     def test_handelsUpperCaseLikeLowerCase(self):
         self.assertEqual('a400', soundex('aLH'))
+
+    def test_doesNotReplaceConsonantWithDigitIfFirstLetter(self):
+        self.assertEqual('L000', soundex('L'))
