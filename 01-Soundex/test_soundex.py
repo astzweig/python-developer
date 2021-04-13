@@ -1,15 +1,15 @@
 import unittest
 from soundex import soundex
 
-def first_letter(word: str) -> str:
+def first_char(word: str) -> str:
     return word[0]
 
 class TestSoundex(unittest.TestCase):
-    def test_retainsSoleLetterOfWord(self):
-        self.assertEqual('A', first_letter(soundex('A')))
-        self.assertEqual('B', first_letter(soundex('B')))
+    def test_retainsSoleCharOfWord(self):
+        self.assertEqual('A', first_char(soundex('A')))
+        self.assertEqual('B', first_char(soundex('B')))
 
-    def test_zeroPadsSingleLetterWord(self):
+    def test_zeroPadsSingleCharWord(self):
         self.assertEqual('A000', soundex('A'))
 
     def test_replacesConsonantsWithDigit(self):
@@ -27,7 +27,7 @@ class TestSoundex(unittest.TestCase):
     def test_removesVowels(self):
         self.assertEqual('A000', soundex('Aaaa'))
 
-    def test_retainsCaseOfFirstLetter(self):
+    def test_retainsCaseOfFirstChar(self):
         self.assertEqual('a000', soundex('a'))
         self.assertEqual('l000', soundex('l'))
         self.assertEqual('H000', soundex('H'))
