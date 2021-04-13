@@ -30,3 +30,8 @@ class TestLevenshteinDistance(unittest.TestCase):
                 edit_distance(word_a, word_b),
                 edit_distance(word_b, word_a)
         )
+
+    def test_distanceOfWordWithDifferentLengthAndChars(self):
+        self.assertEqual(2, edit_distance('ab', 'max'))
+        self.assertEqual(6, edit_distance('aberwas', 'dasaber'))
+        self.assertEqual(24, edit_distance('kohlensäurehaltigesmineralwasser', 'hackfleischhassenderzerhacker'))
