@@ -10,6 +10,7 @@ It is used in the Astzweig course Python in details.
 | [Soundex][soundex-src] | A python implementation of the [soundex algorithm][1] |
 | [Levenshtein][levenshtein-src] | A python implementation of the [Levenshtein string metric algorithm][2] |
 | [Prime Factorization][prime-factorization-src] | A [prime factorization][3] algorithm in python |
+| [Tenis Points][tenis-points-src] | An algorithm for calculating the points for a special version of tennis |
 
 ## Changelog
 See [CHANGELOG.md][changelog].
@@ -24,5 +25,6 @@ Released under the [European Union Public License version 1.2][license]
 [soundex-src]: 01-Soundex
 [levenshtein-src]: 02-Levenshtein
 [prime-factorization-src]: 03-Prime-Factorization
+[tenis-points-src]: 04-Tenis-Points
 [changelog]: CHANGELOG.md
 [license]: LICENSE

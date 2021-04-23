@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog][keepachangelog].
 ## 2021-04-23
 ### Added
 - Implemented a [prime factorization][1] algorithm.
+- Implemented a points calculator for a special version of tennis called tenis.
 
 ## 2021-04-14
 ### Added
