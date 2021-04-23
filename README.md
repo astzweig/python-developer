@@ -4,9 +4,15 @@ learning modules that each contain specific lessons about Python.
 It is used in the Astzweig course Python in details.
 
 ## Lectures
-No lectures yet.
+
+| Lecture | Topic |
+| ------- | ----- |
+| Soundex | A python implementation of the [soundex algorithm][1] |
+| Levenshtein | A python implementation of the [Levenshtein string metric algorithm][2] |
 
 ## License
-Released under the [European Union Public License version 1.2][1]
+Released under the [European Union Public License version 1.2][3]
 
-[1]: LICENSE
+[1]: https://en.wikipedia.org/wiki/Soundex
+[2]: https://en.wikipedia.org/wiki/Levenshtein_distance
+[3]: LICENSE
