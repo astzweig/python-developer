@@ -20,3 +20,6 @@ class TestGetPrimeFactors(unittest.TestCase):
 
     def test_returnsListWithTwoNumberThreesWhenNumberIsNine(self):
         self.assertEqual([3, 3], get_prime_factors(9))
+
+    def test_returnsPrimeFactorsOfNinetyNineCorrectly(self):
+        self.assertEqual([3, 3, 11], get_prime_factors(99))
