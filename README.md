@@ -10,9 +10,13 @@ It is used in the Astzweig course Python in details.
 | Soundex | A python implementation of the [soundex algorithm][1] |
 | Levenshtein | A python implementation of the [Levenshtein string metric algorithm][2] |
 
+## Changelog
+See [CHANGELOG.md][3].
+
 ## License
-Released under the [European Union Public License version 1.2][3]
+Released under the [European Union Public License version 1.2][4]
 
 [1]: https://en.wikipedia.org/wiki/Soundex
 [2]: https://en.wikipedia.org/wiki/Levenshtein_distance
-[3]: LICENSE
+[3]: CHANGELOG.md
+[4]: LICENSE
