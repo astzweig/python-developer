@@ -14,3 +14,6 @@ class TestGetPrimeFactors(unittest.TestCase):
 
     def test_returnsListWithNumberTwoAndThreeWhenNumberIsSix(self):
         self.assertEqual([2, 3], get_prime_factors(6))
+
+    def test_returnsListWithThreeNumberTwosWhenNumberIsEight(self):
+        self.assertEqual([2, 2, 2], get_prime_factors(8))
