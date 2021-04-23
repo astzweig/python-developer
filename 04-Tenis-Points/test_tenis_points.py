@@ -20,3 +20,7 @@ class TestGetTenisPointsForAllPlayers(unittest.TestCase):
     def test_multipliesPointsTwoTimesIfGiven3And2(self):
         result = get_tenis_points_of_all_players([3, 2, 3])
         self.assertEqual((14, 1), result)
+
+    def test_returnsCorrectPointsForPlayerWinning10Rounds(self):
+        result = get_tenis_points_of_all_players([3] * 10)
+        self.assertEqual((54, 0), result)
