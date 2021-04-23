@@ -8,3 +8,7 @@ class TestGetTenisPointsForAllPlayers(unittest.TestCase):
     def test_returnsSumIfOnlyOneRoundIsGiven(self):
         result = get_tenis_points_of_all_players([1])
         self.assertEqual((1, 2), result)
+
+    def test_multipliesPointsOfSecondRoundIfGiven2OnFirst(self):
+        result = get_tenis_points_of_all_players([2, 1])
+        self.assertEqual((4, 3), result)
