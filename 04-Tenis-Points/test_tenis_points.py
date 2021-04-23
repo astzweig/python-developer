@@ -12,3 +12,7 @@ class TestGetTenisPointsForAllPlayers(unittest.TestCase):
     def test_multipliesPointsOfSecondRoundIfGiven2OnFirst(self):
         result = get_tenis_points_of_all_players([2, 1])
         self.assertEqual((4, 3), result)
+
+    def test_multipliesPointsOfThirdRoundIfGiven3OnFirst(self):
+        result = get_tenis_points_of_all_players([3, 3, 3])
+        self.assertEqual((12, 0), result)
