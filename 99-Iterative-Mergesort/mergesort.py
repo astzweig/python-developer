@@ -1,17 +1,27 @@
 from math import ceil
 
 def iterative_mergesort(lst: list[int]) -> list[int]:
-    step_size = 2
-    while step_size <= 2 * len(lst):
-        result = []
-        for index in range(0, len(lst), step_size):
-            second_index = index + step_size
-            if second_index > len(lst):
-                second_index = len(lst)
-            result.extend(merge_list(lst, index, second_index))
-        lst = result
-        step_size *= 2
+    for step_size in get_doubled_number_up_to(2 * len(lst), starting_at = 2):
+        partials = []
+        for start, end in walk_list_in_steps(len(lst), step_size):
+            sorted_partial_list = merge_list(lst, start, end)
+            partials.extend(sorted_partial_list)
+        lst = partials
     return lst
+
+def get_doubled_number_up_to(n, starting_at):
+    step_size = starting_at
+    while step_size <= n:
+        yield step_size
+        step_size *= 2
+
+def walk_list_in_steps(n: int, step_size):
+    for start in range(0, n, step_size):
+        end = start + step_size
+        if end > n:
+            end = n
+        yield start, end
+
 
 def merge_list(lst: list[int], left: int, right: int):
     mid = ceil((right - left) / 2) + left
