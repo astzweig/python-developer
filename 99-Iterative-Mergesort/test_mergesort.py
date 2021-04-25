@@ -28,3 +28,6 @@ class TestIterativeMergeSort(unittest.TestCase):
 class TestMergeList(unittest.TestCase):
     def test_returnsEmptyListWhenGivenEmptyList(self):
         self.assertEqual([], merge_list([], 0, 0))
+
+    def test_returnsUnchangedListWhenGivenSingleElementList(self):
+        self.assertEqual([1], merge_list([1], 0, 1))
