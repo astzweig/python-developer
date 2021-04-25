@@ -35,4 +35,9 @@ class TestMergeList(unittest.TestCase):
     def test_sortsListWithTwoPresortedListsOfLengthOne(self):
         list_to_sort = [4, 1]
         sorted_list = [1, 4]
-        self.assertEqual(sorted_list, merge_list(list_to_sort, 0, 3))
+        self.assertEqual(sorted_list, merge_list(list_to_sort, 0, 2))
+
+    def test_sortsListWithTwoPresortedListsOfLengthTwo(self):
+        list_to_sort = [1, 6, 0, 7]
+        sorted_list = [0, 1, 6, 7]
+        self.assertEqual(sorted_list, merge_list(list_to_sort, 0, 4))
