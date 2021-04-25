@@ -2,7 +2,7 @@ from math import ceil
 
 def iterative_mergesort(lst: list[int]) -> list[int]:
     step_size = 2
-    while step_size <= len(lst):
+    while step_size <= 2 * len(lst):
         result = []
         for index in range(0, len(lst), step_size):
             second_index = index + step_size

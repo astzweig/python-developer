@@ -15,6 +15,11 @@ class TestIterativeMergeSort(unittest.TestCase):
         sorted_list = [1, 4]
         self.assertEqual(sorted_list, mergesort(list_to_sort))
 
+    def test_sortsListWithThreeElements(self):
+        list_to_sort = [5, -1, 3]
+        sorted_list = [-1, 3, 5]
+        self.assertEqual(sorted_list, mergesort(list_to_sort))
+
     def test_sortsListWithFourElements(self):
         list_to_sort = [4, 1, -2, 3]
         sorted_list = [-2, 1, 3, 4]
