@@ -44,21 +44,21 @@ class TestMergeList(unittest.TestCase):
         self.assertEqual(sorted_list, merge_list(list_to_sort, 0, 2))
 
     def test_sortsListWithTwoPresortedListsOfLengthTwo(self):
-        list_to_sort = [1, 6, 0, 7]
+        list_to_sort = [1, 6] + [0, 7]
         sorted_list = [0, 1, 6, 7]
         self.assertEqual(sorted_list, merge_list(list_to_sort, 0, 4))
 
     def test_sortsListWithTwoPresortedListsOfLengthTwoAndOne(self):
-        list_to_sort = [1, 6, 0]
+        list_to_sort = [1, 6] + [0]
         sorted_list = [0, 1, 6]
         self.assertEqual(sorted_list, merge_list(list_to_sort, 0, 3))
 
     def test_sortsListWithTwoPresortedListsOfLengthThreeAndTwo(self):
-        list_to_sort = [0, 1, 3, -1, 2]
+        list_to_sort = [0, 1, 3] + [-1, 2]
         sorted_list = [-1 , 0, 1, 2, 3]
         self.assertEqual(sorted_list, merge_list(list_to_sort, 0, 5))
 
     def test_sortsListsWithSameLengthAndSameValues(self):
-        list_to_sort = [0, 1, 3, -1, 0]
+        list_to_sort = [0, 1, 3] + [-1, 0]
         sorted_list = [-1 , 0, 0, 1, 3]
         self.assertEqual(sorted_list, merge_list(list_to_sort, 0, 5))
