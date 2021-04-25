@@ -14,7 +14,7 @@ def iterative_mergesort(lst: list[int]) -> list[int]:
     return lst
 
 def merge_list(lst: list[int], left: int, right: int):
-    mid = (right - left) // 2
+    mid = ceil((right - left) / 2)
     left_idx = left
     right_idx = mid
     result = []
