@@ -9,6 +9,20 @@ def iterative_mergesort(lst: list[int]) -> list[int]:
         lst = partials
     return lst
 
+def merge_list(lst: list[int], left: int, right: int):
+    result = []
+    mid = ceil((right - left) / 2) + left
+    indices = [left, mid]
+    indices_max = [mid, right]
+
+    while True:
+        if is_any_indice_maxed(indices, indices_max):
+            break
+        append_lower_number_and_advance_index(result, lst, indices)
+
+    append_remaining_elements(result, lst, indices, indices_max)
+    return result
+
 def get_doubled_number_up_to(n, starting_at):
     step_size = starting_at
     while step_size <= n:
@@ -22,28 +36,27 @@ def walk_list_in_steps(n: int, step_size):
             end = n
         yield start, end
 
+def append_lower_number_and_advance_index(result: list[int], lst: list[int], indices: list[int]):
+    lowest_number = None
+    index_to_advance = 0
+    for idx_num, idx in enumerate(indices):
+        if lowest_number is None or lst[idx] < lowest_number:
+            lowest_number = lst[idx]
+            index_to_advance = idx_num
 
-def merge_list(lst: list[int], left: int, right: int):
-    mid = ceil((right - left) / 2) + left
-    left_idx = left
-    right_idx = mid
-    result = []
+    indices[index_to_advance] += 1
+    result.append(lowest_number)
 
-    while True:
-        if left_idx >= mid or right_idx >= right:
-            break
-        if lst[left_idx] > lst[right_idx]:
-            result.append(lst[right_idx])
-            right_idx += 1
-        else:
-            result.append(lst[left_idx])
-            left_idx += 1
+def append_remaining_elements(result: list[int], lst: list[int], indices: list[int], maxed: list[int]):
+    assert len(indices) == len(maxed)
+    for idx, max_value in zip(indices, maxed):
+        while idx < max_value:
+            result.append(lst[idx])
+            idx += 1
 
-    while left_idx < mid:
-        result.append(lst[left_idx])
-        left_idx += 1
-
-    while right_idx < right:
-        result.append(lst[right_idx])
-        right_idx += 1
-    return result
+def is_any_indice_maxed(indices: list[int], maxed: list[int]) -> bool:
+    assert len(indices) == len(maxed)
+    for idx, maxed in zip(indices, maxed):
+        if idx >= maxed:
+            return True
+    return False
