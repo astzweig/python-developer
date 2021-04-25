@@ -1,20 +1,20 @@
 from math import ceil
 
 def iterative_mergesort(lst: list[int]) -> list[int]:
-    for index in range(0, len(lst), 1):
-        pass
-
-    for index in range(0, len(lst), 2):
-        length_list = 2
-        merge_list(lst[index:index + length_list])
-
-    for index in range(0, len(lst), 4):
-        length_list = 4
-        merge_list(lst[index:index + length_list])
+    step_size = 2
+    while step_size <= len(lst):
+        result = []
+        for index in range(0, len(lst), step_size):
+            second_index = index + step_size
+            if second_index > len(lst):
+                second_index = len(lst)
+            result.extend(merge_list(lst, index, second_index))
+        lst = result
+        step_size *= 2
     return lst
 
 def merge_list(lst: list[int], left: int, right: int):
-    mid = ceil((right - left) / 2)
+    mid = ceil((right - left) / 2) + left
     left_idx = left
     right_idx = mid
     result = []
