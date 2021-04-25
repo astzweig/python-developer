@@ -14,4 +14,6 @@ def iterative_mergesort(lst: list[int]) -> list[int]:
     return lst
 
 def merge_list(lst: list[int], left: int, right: int):
+    if len(lst) > 1 and lst[0] > lst[1]:
+        lst[0], lst[1] = lst[1], lst[0]
     return lst

@@ -31,3 +31,8 @@ class TestMergeList(unittest.TestCase):
 
     def test_returnsUnchangedListWhenGivenSingleElementList(self):
         self.assertEqual([1], merge_list([1], 0, 1))
+
+    def test_sortsListWithTwoPresortedListsOfLengthOne(self):
+        list_to_sort = [4, 1]
+        sorted_list = [1, 4]
+        self.assertEqual(sorted_list, merge_list(list_to_sort, 0, 3))
